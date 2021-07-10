@@ -29,7 +29,7 @@
     </listen-socket>
 
     <fileserve>0</fileserve>
-    <server-id>hfradio</server-id>
+    <server-id>scradio</server-id>
 
     <paths>
         <basedir>/usr/share/icecast2</basedir>

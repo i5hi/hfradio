@@ -6,5 +6,5 @@
 ServerQuit.add({
 	'FAIL: scsynth quit'.postln;
 	1.exit();
-}, Server.default.options.memSize = 65536);
+}, Server.default);
 

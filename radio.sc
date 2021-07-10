@@ -204,5 +204,5 @@ Routine({
 	~bassMelody.value(\siren, loops:3, amp:0.025, shift:18, speed:400);
 	*/
 
-}).play
+}).play;
 });

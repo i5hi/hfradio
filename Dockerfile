@@ -1,12 +1,12 @@
 FROM debian:buster-slim
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV QTWEBENGINE_DISABLE_SANDBOX=1
 
 RUN apt-get update && \
     apt-get install -y jackd1 jack-tools icecast2 darkice supercollider xvfb && \
     apt-get clean
 
-ENV QTWEBENGINE_DISABLE_SANDBOX=1
 
 COPY asoundrc /root/.asoundrc
 
