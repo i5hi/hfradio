@@ -1,6 +1,6 @@
 <icecast>
-    <location>The Astral Plane</location>
-    <admin>admin@example.com</admin>
+    <location>High Fidelity Records</location>
+    <admin>admin@highfidelity.in</admin>
 
     <limits>
         <clients>500</clients>
@@ -29,7 +29,7 @@
     </listen-socket>
 
     <fileserve>0</fileserve>
-    <server-id>scradio</server-id>
+    <server-id>hfradio</server-id>
 
     <paths>
         <basedir>/usr/share/icecast2</basedir>

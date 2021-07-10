@@ -14,7 +14,7 @@ COPY icecast.xml /etc/icecast2/icecast.xml
 COPY darkice.cfg /etc/darkice.cfg
 
 COPY startup.scd /root/.config/SuperCollider/startup.scd
-COPY erf.sc /erf.sc
+COPY twohexes.sc /twohexes.sc
 
 EXPOSE 8000
 
