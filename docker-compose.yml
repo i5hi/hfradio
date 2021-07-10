@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: sc_radio
-    container_name: onix
+    container_name: ice
     restart: unless-stopped
     ports:
       - "8000:8000" 

@@ -39,12 +39,9 @@ server {
         ssl_stapling_verify on;
         resolver 8.8.8.8;
 
-        location / {
-                try_files $uri @ice;
-        }
 
-        location @ice {
-                proxy_pass http://ice:8080;
+        location / {
+                proxy_pass http://ice:8000/stream.mp3;
                 add_header X-Frame-Options "SAMEORIGIN" always;
                 add_header X-XSS-Protection "1; mode=block" always;
                 add_header X-Content-Type-Options "nosniff" always;
@@ -54,6 +51,6 @@ server {
                 # enable strict transport security only if you understand the implications
         }
 
-        root /var/www/html;
-        index index.html index.htm index.nginx-debian.html;
+#        root /var/www/html;
+#        index index.html index.htm index.nginx-debian.html;
 }
