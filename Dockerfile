@@ -14,7 +14,7 @@ COPY icecast.xml /etc/icecast2/icecast.xml
 COPY darkice.cfg /etc/darkice.cfg
 
 COPY startup.scd /root/.config/SuperCollider/startup.scd
-COPY waf.sc /waf.sc
+COPY erf.sc /erf.sc
 
 EXPOSE 8000
 
