@@ -1,0 +1,64 @@
+version: '3'
+
+services:
+  ice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sc_radio
+    container_name: onix
+    restart: unless-stopped
+    ports:
+      - "8000:8000" 
+    networks:
+      - hfr-net
+
+  nginx:
+    image: nginx:mainline-alpine
+    container_name: mew
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx-conf:/etc/nginx/conf.d
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - dhparam:/etc/ssl/certs
+      - web-root:/var/www/html
+    networks:
+      - hfr-net
+
+  certbot:
+    image: certbot/certbot
+    container_name: electrode
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - web-root:/var/www/html
+    depends_on:
+      - nginx
+    command: certonly --webroot --webroot-path=/var/www/html --email tech@stackmate.in --agree-tos --no-eff-email --dry-run -d radio.highfidelity.in
+    networks:
+      - hfr-net
+
+
+volumes:
+  web-root:
+  certbot-etc:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${CERTBOT_PATH}
+      o: bind
+  certbot-var:
+  dhparam:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${DHPARAM_PATH}
+      o: bind
+
+networks:
+  hfr-net:
+    driver: bridge
