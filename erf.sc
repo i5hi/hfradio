@@ -1,5 +1,7 @@
 Server.default.waitForBoot({
 
+Server.default.options.memSize = 65536;
+
 (
 {
 	//Global stuff

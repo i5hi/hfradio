@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: sc_radio
+    privileged: true
     container_name: ice
     restart: unless-stopped
     ports:
